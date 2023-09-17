@@ -93,13 +93,93 @@ public:
         if (this->head == NULL)
         {
             this->head = this->tail = new_node;
-            return head;
+            return this->head;
         }
 
         new_node->set_next(this->head);
         this->head = new_node;
 
-        return head;
+        return this->head;
+    }
+
+    Node *insert_at_last(int data)
+    {
+        Node *new_node = new Node(data);
+
+        if (this->head == NULL)
+        {
+            this->head = this->tail = new_node;
+            return this->tail;
+        }
+
+        this->tail->set_next(new_node);
+        this->tail = new_node;
+
+        return this->tail;
+    }
+
+    int search_in_list(int key)
+    {
+        int i = 0;
+        Node *temp = this->head;
+
+        while (temp != NULL)
+        {
+            if (temp->get_data() == key)
+            {
+                return i;
+            }
+
+            i++;
+            temp = temp->get_next();
+        }
+
+        return -1;
+    }
+
+    int delete_at_first()
+    {
+        if (this->head == NULL)
+        {
+            std::cout << "List is empty. Nothing to delete...";
+            return -1;
+        }
+
+        Node *delete_node = this->head;
+        int deleted_data = delete_node->get_data();
+
+        this->head = delete_node->get_next();
+
+        free(delete_node);
+
+        return deleted_data;
+    }
+
+    int delete_at_last()
+    {
+        if (this->head == NULL)
+        {
+            std::cout << "List is empty. Nothing to delete...";
+            return -1;
+        }
+
+        Node *prev_node, *temp = this->head;
+        int deleted_data = 0;
+
+        while (temp->get_next() != this->tail)
+        {
+            temp = temp->get_next();
+        }
+
+        prev_node = temp;
+        deleted_data = prev_node->get_next()->get_data();
+
+        free(prev_node->get_next());
+
+        prev_node->set_next(NULL);
+        this->tail = prev_node;
+
+        return deleted_data;
     }
 
     void print_list()
@@ -133,13 +213,27 @@ int main(int argc, char const *argv[])
 {
     LinkedList list;
 
-    list.insert_at_first(5);
-    list.insert_at_first(4);
-    list.insert_at_first(3);
-    list.insert_at_first(2);
-    list.insert_at_first(1);
+    // list.insert_at_first(5);
+    // list.insert_at_first(4);
+    // list.insert_at_first(3);
+    // list.insert_at_first(2);
+    // list.insert_at_first(1);
+
+    list.insert_at_last(1);
+    list.insert_at_last(2);
+    list.insert_at_last(3);
+    list.insert_at_last(4);
+    list.insert_at_last(5);
+
+    // list.delete_at_first();
+    // list.delete_at_first();
+
+    // list.delete_at_last();
+    // list.delete_at_last();
 
     list.print_list();
+
+    // std::cout << list.search_in_list(10);
 
     return 0;
 }
