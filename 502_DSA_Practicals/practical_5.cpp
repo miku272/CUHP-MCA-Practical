@@ -137,6 +137,17 @@ public:
         return -1;
     }
 
+    void reverse_linked_list()
+    {
+    }
+
+    void concatenate_linked_list(LinkedList *list)
+    {
+        this->tail->set_next(list->get_head());
+
+        this->tail = list->get_tail();
+    }
+
     int delete_at_first()
     {
         if (this->head == NULL)
@@ -204,14 +215,24 @@ public:
 
     ~LinkedList()
     {
+        // free(this->head);
+        // free(this->tail);
+        Node *temp;
+
+        while (this->head != NULL)
+        {
+            temp = head->get_next();
+            free(head);
+            head = temp;
+        }
+
         free(this->head);
-        free(this->tail);
     };
 };
 
 int main(int argc, char const *argv[])
 {
-    LinkedList list;
+    LinkedList list, list1;
 
     // list.insert_at_first(5);
     // list.insert_at_first(4);
@@ -224,6 +245,14 @@ int main(int argc, char const *argv[])
     list.insert_at_last(3);
     list.insert_at_last(4);
     list.insert_at_last(5);
+
+    // list1.insert_at_last(6);
+    // list1.insert_at_last(7);
+    // list1.insert_at_last(8);
+    // list1.insert_at_last(9);
+    // list1.insert_at_last(10);
+
+    // list.concatenate_linked_list(&list1);
 
     // list.delete_at_first();
     // list.delete_at_first();
