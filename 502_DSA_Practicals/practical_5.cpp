@@ -4,56 +4,13 @@ Implement Linked List using templates. Include functions for insertion, deletion
 
 #include <iostream>
 
-class Node
-{
-private:
-    int data;
-    Node *next;
-
-public:
-    Node()
-    {
-        this->data = 0;
-        this->next = NULL;
-    }
-
-    Node(int data)
-    {
-        this->data = data;
-        this->next = NULL;
-    }
-
-    int get_data()
-    {
-        return this->data;
-    }
-
-    void set_data(int data)
-    {
-        this->data = data;
-    }
-
-    Node *get_next()
-    {
-        return this->next;
-    }
-
-    void set_next(Node *next)
-    {
-        this->next = next;
-    }
-
-    ~Node()
-    {
-        free(this->next);
-    };
-};
+#include "Node.h"
 
 class LinkedList
 {
 private:
-    Node *head;
-    Node *tail;
+    SinglyNode *head;
+    SinglyNode *tail;
 
 public:
     LinkedList()
@@ -61,59 +18,59 @@ public:
         this->head = this->tail = NULL;
     };
 
-    LinkedList(Node *head)
+    LinkedList(SinglyNode *head)
     {
         this->head = this->tail = head;
     }
 
-    Node *get_head()
+    SinglyNode *get_head()
     {
         return this->head;
     }
 
-    void set_head(Node *head)
+    void set_head(SinglyNode *head)
     {
         this->head = head;
     }
 
-    Node *get_tail()
+    SinglyNode *get_tail()
     {
         return this->tail;
     }
 
-    void set_tail(Node *tail)
+    void set_tail(SinglyNode *tail)
     {
         this->tail = tail;
     }
 
-    Node *insert_at_first(int data)
+    SinglyNode *insert_at_first(int data)
     {
-        Node *new_node = new Node(data);
+        SinglyNode *new_SinglyNode = new SinglyNode(data);
 
         if (this->head == NULL)
         {
-            this->head = this->tail = new_node;
+            this->head = this->tail = new_SinglyNode;
             return this->head;
         }
 
-        new_node->set_next(this->head);
-        this->head = new_node;
+        new_SinglyNode->set_next(this->head);
+        this->head = new_SinglyNode;
 
         return this->head;
     }
 
-    Node *insert_at_last(int data)
+    SinglyNode *insert_at_last(int data)
     {
-        Node *new_node = new Node(data);
+        SinglyNode *new_SinglyNode = new SinglyNode(data);
 
         if (this->head == NULL)
         {
-            this->head = this->tail = new_node;
+            this->head = this->tail = new_SinglyNode;
             return this->tail;
         }
 
-        this->tail->set_next(new_node);
-        this->tail = new_node;
+        this->tail->set_next(new_SinglyNode);
+        this->tail = new_SinglyNode;
 
         return this->tail;
     }
@@ -121,7 +78,7 @@ public:
     int search_in_list(int key)
     {
         int i = 0;
-        Node *temp = this->head;
+        SinglyNode *temp = this->head;
 
         while (temp != NULL)
         {
@@ -139,6 +96,19 @@ public:
 
     void reverse_linked_list()
     {
+        SinglyNode *next = NULL, *current = this->head, *prev = NULL;
+
+        while (current != NULL)
+        {
+            next = current->get_next();
+
+            current->set_next(prev);
+
+            prev = current;
+            current = next;
+        }
+
+        head = prev;
     }
 
     void concatenate_linked_list(LinkedList *list)
@@ -156,12 +126,12 @@ public:
             return -1;
         }
 
-        Node *delete_node = this->head;
-        int deleted_data = delete_node->get_data();
+        SinglyNode *delete_SinglyNode = this->head;
+        int deleted_data = delete_SinglyNode->get_data();
 
-        this->head = delete_node->get_next();
+        this->head = delete_SinglyNode->get_next();
 
-        free(delete_node);
+        delete delete_SinglyNode;
 
         return deleted_data;
     }
@@ -174,7 +144,7 @@ public:
             return -1;
         }
 
-        Node *prev_node, *temp = this->head;
+        SinglyNode *prev_SinglyNode, *temp = this->head;
         int deleted_data = 0;
 
         while (temp->get_next() != this->tail)
@@ -182,20 +152,20 @@ public:
             temp = temp->get_next();
         }
 
-        prev_node = temp;
-        deleted_data = prev_node->get_next()->get_data();
+        prev_SinglyNode = temp;
+        deleted_data = prev_SinglyNode->get_next()->get_data();
 
-        free(prev_node->get_next());
+        delete prev_SinglyNode->get_next();
 
-        prev_node->set_next(NULL);
-        this->tail = prev_node;
+        prev_SinglyNode->set_next(NULL);
+        this->tail = prev_SinglyNode;
 
         return deleted_data;
     }
 
     void print_list()
     {
-        Node *temp = this->head;
+        SinglyNode *temp = this->head;
 
         if (this->head == NULL)
         {
@@ -208,25 +178,25 @@ public:
             std::cout << temp->get_data() << " -> ";
             temp = temp->get_next();
         }
-        std::cout << "NULL";
+        std::cout << "NULL\n";
 
-        free(temp);
+        delete temp;
     }
 
     ~LinkedList()
     {
         // free(this->head);
         // free(this->tail);
-        Node *temp;
+        SinglyNode *temp;
 
         while (this->head != NULL)
         {
-            temp = head->get_next();
-            free(head);
-            head = temp;
+            temp = this->head->get_next();
+            delete this->head;
+            this->head = temp;
         }
 
-        free(this->head);
+        delete this->head;
     };
 };
 
@@ -259,6 +229,8 @@ int main(int argc, char const *argv[])
 
     // list.delete_at_last();
     // list.delete_at_last();
+
+    // list.reverse_linked_list();
 
     list.print_list();
 
