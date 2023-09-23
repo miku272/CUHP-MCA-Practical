@@ -61,10 +61,26 @@ public:
 
     int delete_at_first()
     {
+        if (this->head == NULL)
+        {
+            std::cout << "List is empty. Nothing to delete...";
+            return -1;
+        }
+
+        DoublyNode *delete_node = this->head;
+        int deleted_data = delete_node->get_data();
+
+        this->head = this->head->get_next();
+        this->head->set_prev(NULL);
+
+        delete delete_node;
+
+        return deleted_data;
     }
 
     int delete_at_last()
     {
+        return 0;
     }
 
     void print_list()
@@ -133,6 +149,8 @@ int main(int argc, char const *argv[])
     list.insert_at_last(3);
     list.insert_at_last(4);
     list.insert_at_last(5);
+
+    list.delete_at_first();
 
     list.print_list();
     // list.reverse_print_list();

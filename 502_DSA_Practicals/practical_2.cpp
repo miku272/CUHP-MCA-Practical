@@ -121,6 +121,7 @@ int main(int argc, char const *argv[])
 
     default:
         std::cout << "You have entered the wrong choice. Please run the program again...";
+        return -1;
     }
 
     std::cout << "Sorted array: ";
