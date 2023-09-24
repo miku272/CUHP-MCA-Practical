@@ -71,9 +71,94 @@
 // }
 
 // Question 9.5
-int main(int argc, char const *argv[])
-{
-    float a = 2.5, b = 2.5;
+// int main(int argc, char const *argv[])
+// {
+//     float a = 2.5, b = 2.5;
 
-    return 0;
-}
+//     // (i)
+//     std::cout << a + 2.5 / b + 4.5 << "\n";
+
+//     // (ii)
+//     std::cout << (a + 2.5) / b + 4.5 << "\n";
+
+//     // (iii)
+//     std::cout << (a + 2.5) / (b + 4.5) << "\n";
+
+//     // (iv)
+//     std::cout << a / 2.5 / b << "\n";
+
+//     // (v)
+//     std::cout << b++ / a + b-- << "\n";
+
+//     return 0;
+// }
+
+// Question 9.6
+// int main(int argc, char const *argv[])
+// {
+//     int i = 3, j = 4, k = 2;
+
+//     // (i)
+//     std::cout << i++ - j-- << "\n";
+
+//     // (ii)
+//     std::cout << i-- % j++ << "\n";
+
+//     // (iii)
+//     std::cout << j++ / i-- << "\n";
+
+//     // (iv)
+//     std::cout << ++k % --j << "\n";
+
+//     // (v)
+//     std::cout << k++ * --i << "\n";
+
+//     // (vi)
+//     std::cout << j + 1 / i - 1 << "\n";
+
+//     // (vii)
+//     std::cout << i - 1 % j + 1 << "\n";
+
+//     // (viii)
+//     i = j *= k = 4;
+//     std::cout << i << " " << j << " " << k << "\n";
+
+//     // (ix)
+//     i *= k = ++j + i;
+//     std::cout << i << " " << j << " " << k << "\n";
+
+//     // (x)
+//     i = j /= k + 4;
+//     std::cout << i << " " << j << " " << k << "\n";
+
+//     return 0;
+// }
+
+// Question 9.8
+// int main(int argc, char const *argv[])
+// {
+//     int i = 5, j = 5, k = 7;
+//     float a = 3.5, b = 5.5, c = 2.5;
+
+//     // (i)
+//     a = b - i / j + c / j;
+
+//     // (ii)
+//     a = (b - i) / (j - c) / j;
+
+//     // (iii)
+//     a = b - ((i + j) / (k + i)) * c;
+
+//     // (iv)
+//     a = b - i + j / k + i * c;
+
+//     // (v)
+//     a = b + 1 % 1 + c;
+
+//     // (vi)
+//     // a = (b + 1) % (1 + c); // Showing wrong syntax
+
+//     std::cout << a;
+
+//     return 0;
+// }
