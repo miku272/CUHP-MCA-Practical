@@ -99,37 +99,37 @@
 //     int i = 3, j = 4, k = 2;
 
 //     // (i)
-//     std::cout << i++ - j-- << "\n";
+//     // std::cout << i++ - j-- << "\n";
 
 //     // (ii)
-//     std::cout << i-- % j++ << "\n";
+//     // std::cout << i-- % j++ << "\n";
 
 //     // (iii)
-//     std::cout << j++ / i-- << "\n";
+//     // std::cout << j++ / i-- << "\n";
 
 //     // (iv)
-//     std::cout << ++k % --j << "\n";
+//     // std::cout << ++k % --j << "\n";
 
 //     // (v)
-//     std::cout << k++ * --i << "\n";
+//     // std::cout << k++ * --i << "\n";
 
 //     // (vi)
-//     std::cout << j + 1 / i - 1 << "\n";
+//     // std::cout << j + 1 / i - 1 << "\n";
 
 //     // (vii)
-//     std::cout << i - 1 % j + 1 << "\n";
+//     // std::cout << i - 1 % j + 1 << "\n";
 
 //     // (viii)
-//     i = j *= k = 4;
-//     std::cout << i << " " << j << " " << k << "\n";
+//     // i = j *= k = 4;
+//     // std::cout << i << " " << j << " " << k << "\n";
 
 //     // (ix)
-//     i *= k = ++j + i;
-//     std::cout << i << " " << j << " " << k << "\n";
+//     // i *= k = ++j + i;
+//     // std::cout << i << " " << j << " " << k << "\n";
 
 //     // (x)
-//     i = j /= k + 4;
-//     std::cout << i << " " << j << " " << k << "\n";
+//     // i = j /= k + 4;
+//     // std::cout << i << " " << j << " " << k << "\n";
 
 //     return 0;
 // }
@@ -141,19 +141,19 @@
 //     float a = 3.5, b = 5.5, c = 2.5;
 
 //     // (i)
-//     a = b - i / j + c / j;
+//     // a = b - i / j + c / j;
 
 //     // (ii)
-//     a = (b - i) / (j - c) / j;
+//     // a = (b - i) / (j - c) / j;
 
 //     // (iii)
-//     a = b - ((i + j) / (k + i)) * c;
+//     // a = b - ((i + j) / (k + i)) * c;
 
 //     // (iv)
-//     a = b - i + j / k + i * c;
+//     // a = b - i + j / k + i * c;
 
 //     // (v)
-//     a = b + 1 % 1 + c;
+//     // a = b + 1 % 1 + c;
 
 //     // (vi)
 //     // a = (b + 1) % (1 + c); // Showing wrong syntax
