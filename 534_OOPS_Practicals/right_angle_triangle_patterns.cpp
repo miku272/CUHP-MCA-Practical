@@ -69,14 +69,10 @@ int main(int argc, char const *argv[])
 
     system("cls");
 
-    triangle_pattern_1(rows);
-    std::cout << "\n\n";
-    triangle_pattern_2(rows);
-    std::cout << "\n\n";
-    triangle_pattern_3(rows);
-    std::cout << "\n\n";
+    // triangle_pattern_1(rows);
+    // triangle_pattern_2(rows);
+    // triangle_pattern_3(rows);
     triangle_pattern_4(rows);
-    std::cout << "\n\n";
 
     return 0;
 }
