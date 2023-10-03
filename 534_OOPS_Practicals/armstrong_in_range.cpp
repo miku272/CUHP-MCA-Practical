@@ -40,7 +40,7 @@ int main(int argc, char const *argv[])
 
     if ((start < 100 || start > 999) || (end < 100 || end > 999))
     {
-        std::cout << "Rnage cannot be less than 100 or greater than 999.";
+        std::cout << "Range cannot be less than 100 or greater than 999.";
 
         return -1;
     }
