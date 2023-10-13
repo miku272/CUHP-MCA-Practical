@@ -12,8 +12,57 @@ void swap(int *val1, int *val2)
     *val2 = temp;
 }
 
-void merge_sort(int arr[], int arr_length)
+void merge(int arr[], int start, int mid, int end)
 {
+    int i = start, j = mid + 1, k = start, a[start + end + 1];
+
+    while (i <= mid && j <= end)
+    {
+        if (arr[i] < arr[j])
+        {
+            a[k] = arr[i];
+            i++;
+            k++;
+        }
+        else
+        {
+            a[k] = arr[j];
+            j++;
+            k++;
+        }
+    }
+
+    while (i <= mid)
+    {
+        a[k] = arr[i];
+        i++;
+        k++;
+    }
+
+    while (j <= end)
+    {
+        a[k] = arr[j];
+        j++;
+        k++;
+    }
+
+    for (int i = start; i <= end; i++)
+    {
+        arr[i] = a[i];
+    }
+}
+
+void merge_sort(int arr[], int start, int end)
+{
+    if (start < end)
+    {
+        int mid = (start + end) / 2;
+
+        merge_sort(arr, start, mid);
+        merge_sort(arr, mid + 1, end);
+
+        merge(arr, start, mid, end);
+    }
 }
 
 void quick_sort(int arr[], int arr_length)
@@ -43,7 +92,7 @@ int main(int argc, char const *argv[])
     {
     case 1:
         std::cout << "Performing merge sort...\n";
-        merge_sort(arr, arr_length);
+        merge_sort(arr, 0, arr_length - 1);
 
         break;
 

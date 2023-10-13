@@ -66,8 +66,7 @@ int main(int argc, char const *argv[])
 
     std::cout << "Enter number of rows: ";
     std::cin >> rows;
-
-    system("cls");
+    std::cout << "\n\n";
 
     // triangle_pattern_1(rows);
     // triangle_pattern_2(rows);

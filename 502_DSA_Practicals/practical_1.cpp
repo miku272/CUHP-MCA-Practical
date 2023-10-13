@@ -4,7 +4,7 @@ Write a program to search an element from a list. Give user the option to perfor
 
 #include <iostream>
 
-int linearSearch(int values[], int start, int end, int element)
+int linear_search(int values[], int start, int end, int element)
 {
     for (int i = 0; i < end; i++)
     {
@@ -17,7 +17,7 @@ int linearSearch(int values[], int start, int end, int element)
     return -1;
 }
 
-int binarySearch(int values[], int start, int end, int element)
+int binary_search(int values[], int start, int end, int element)
 {
     int mid = 0;
 
@@ -43,10 +43,34 @@ int binarySearch(int values[], int start, int end, int element)
     return -1;
 }
 
+int recursive_binary_search(int values[], int start, int end, int element)
+{
+    if (start > end)
+    {
+        return -1;
+    }
+
+    int mid = (start + end) / 2;
+
+    if (values[mid] == element)
+    {
+        return mid;
+    }
+
+    if (values[mid] > element)
+    {
+        return recursive_binary_search(values, start, mid - 1, element);
+    }
+    else
+    {
+        return recursive_binary_search(values, mid + 1, end, element);
+    }
+}
+
 int main(int argc, char const *argv[])
 {
     int values[] = {2, 4, 6, 8, 10, 12, 14};
-    int element = 20;
+    int element = 10;
     int values_length = sizeof(values) / sizeof(values[0]);
     int option = 0;
     int result = -1;
@@ -60,7 +84,7 @@ int main(int argc, char const *argv[])
     switch (option)
     {
     case 1:
-        result = linearSearch(values, 0, values_length, element);
+        result = linear_search(values, 0, values_length, element);
 
         std::cout << "Performing linear search...\n\n";
         if (result == -1)
@@ -75,7 +99,7 @@ int main(int argc, char const *argv[])
         break;
 
     case 2:
-        result = binarySearch(values, 0, values_length, element);
+        result = recursive_binary_search(values, 0, values_length, element);
 
         std::cout << "Performing binary search...\n\n";
         if (result == -1)

@@ -4,135 +4,7 @@ Implement Doubly Linked List using templates. Include functions for insertion, d
 
 #include <iostream>
 
-#include "node.h"
-
-class DoublyLinkedList
-{
-private:
-    DoublyNode *head;
-    DoublyNode *tail;
-
-public:
-    DoublyLinkedList()
-    {
-        this->head = NULL;
-        this->tail = NULL;
-    }
-
-    DoublyLinkedList(DoublyNode *head)
-    {
-        this->head = head;
-        this->tail = NULL;
-    }
-
-    DoublyNode *insert_at_first(int data)
-    {
-        DoublyNode *new_node = new DoublyNode(data);
-
-        if (this->head == NULL)
-        {
-            this->head = this->tail = new_node;
-            return new_node;
-        }
-
-        this->head->set_prev(new_node);
-        new_node->set_next(this->head);
-        head = new_node;
-
-        return new_node;
-    }
-
-    DoublyNode *insert_at_last(int data)
-    {
-        DoublyNode *new_node = new DoublyNode(data);
-
-        if (this->head == NULL)
-        {
-            this->head = this->tail = new_node;
-            return new_node;
-        }
-
-        this->tail->set_next(new_node);
-        new_node->set_prev(this->tail);
-        this->tail = new_node;
-
-        return new_node;
-    }
-
-    int delete_at_first()
-    {
-        if (this->head == NULL)
-        {
-            std::cout << "List is empty. Nothing to delete...";
-            return -1;
-        }
-
-        DoublyNode *delete_node = this->head;
-        int deleted_data = delete_node->get_data();
-
-        this->head = this->head->get_next();
-        this->head->set_prev(NULL);
-
-        delete delete_node;
-
-        return deleted_data;
-    }
-
-    int delete_at_last()
-    {
-        return 0;
-    }
-
-    void print_list()
-    {
-        if (this->head == NULL)
-        {
-            std::cout << "List is empty...";
-            return;
-        }
-
-        DoublyNode *temp = this->head;
-
-        while (temp != NULL)
-        {
-            std::cout << temp->get_data() << " <-> ";
-            temp = temp->get_next();
-        }
-        std::cout << "NULL\n";
-    }
-
-    void reverse_print_list()
-    {
-        if (this->head == NULL)
-        {
-            std::cout << "List is empty...";
-            return;
-        }
-
-        DoublyNode *temp = this->tail;
-
-        while (temp != NULL)
-        {
-            std::cout << temp->get_data() << " <-> ";
-            temp = temp->get_prev();
-        }
-        std::cout << "NULL\n";
-    }
-
-    ~DoublyLinkedList()
-    {
-        DoublyNode *temp;
-
-        while (this->head != NULL)
-        {
-            temp = this->head->get_next();
-            delete this->head;
-            this->head = temp;
-        }
-
-        delete this->head;
-    }
-};
+#include "linklist.h"
 
 int main(int argc, char const *argv[])
 {
@@ -150,7 +22,13 @@ int main(int argc, char const *argv[])
     list.insert_at_last(4);
     list.insert_at_last(5);
 
-    list.delete_at_first();
+    // list.insert_at_index(10, 2);
+
+    // list.delete_at_first();
+
+    // list.delete_at_index(3);
+
+    // list.delete_at_last();
 
     list.print_list();
     // list.reverse_print_list();
