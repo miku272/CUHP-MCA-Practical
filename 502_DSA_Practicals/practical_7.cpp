@@ -62,5 +62,7 @@ int main(int argc, char const *argv[])
         std::cout << st->pop() << " ";
     }
 
+    delete st;
+
     return 0;
 }
