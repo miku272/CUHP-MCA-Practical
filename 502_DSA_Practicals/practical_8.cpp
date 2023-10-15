@@ -50,8 +50,7 @@ public:
             return -1;
         }
 
-        int popped_data = this->stack_arr[this->curr];
-        this->curr--;
+        int popped_data = this->stack_arr[this->curr--];
 
         if (this->curr < -1)
         {
@@ -82,16 +81,16 @@ int main(int argc, char const *argv[])
 {
     Stack *st = new Stack();
 
-    st->push(10);
-    st->push(9);
-    st->push(8);
-    st->push(7);
-    st->push(6);
-    st->push(5);
-    st->push(4);
-    st->push(3);
-    st->push(2);
     st->push(1);
+    st->push(2);
+    st->push(3);
+    st->push(4);
+    st->push(5);
+    st->push(6);
+    st->push(7);
+    st->push(8);
+    st->push(9);
+    st->push(10);
 
     while (!st->is_empty())
     {
