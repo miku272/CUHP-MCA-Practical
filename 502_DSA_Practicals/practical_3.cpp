@@ -88,9 +88,11 @@ int partition(int arr[], int start, int end)
 
 void quick_sort(int arr[], int start, int end)
 {
+    int partition_index = 0;
+
     if (start < end)
     {
-        int partition_index = partition(arr, start, end);
+        partition_index = partition(arr, start, end);
 
         quick_sort(arr, start, partition_index - 1);
         quick_sort(arr, partition_index + 1, end);

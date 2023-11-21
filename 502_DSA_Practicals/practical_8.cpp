@@ -73,7 +73,7 @@ public:
 
     ~Stack()
     {
-        delete this->stack_arr;
+        delete[] this->stack_arr;
     }
 };
 

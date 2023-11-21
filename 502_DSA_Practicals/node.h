@@ -39,10 +39,10 @@ public:
         this->next = next;
     }
 
-    ~SinglyNode()
-    {
-        delete this->next;
-    };
+    // ~SinglyNode()
+    // {
+    //     delete this->next;
+    // };
 };
 
 class DoublyNode
@@ -97,9 +97,9 @@ public:
         this->next = next;
     }
 
-    ~DoublyNode()
-    {
-        delete this->prev;
-        delete this->next;
-    }
+    // ~DoublyNode()
+    // {
+    //     delete this->prev;
+    //     delete this->next;
+    // }
 };

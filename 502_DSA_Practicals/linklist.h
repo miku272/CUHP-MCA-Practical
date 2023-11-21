@@ -217,6 +217,8 @@ public:
         }
 
         delete_node = temp->get_next();
+        deleted_data = delete_node->get_data();
+
         temp->set_next(delete_node->get_next());
 
         delete_node->set_next(NULL);
@@ -272,22 +274,22 @@ public:
         delete temp;
     }
 
-    ~SinglyLinkedList()
-    {
-        // free(this->head);
-        // free(this->tail);
-        SinglyNode *temp;
+    // ~SinglyLinkedList()
+    // {
+    //     // free(this->head);
+    //     // free(this->tail);
+    //     SinglyNode *temp;
 
-        while (this->head != NULL)
-        {
-            temp = this->head->get_next();
-            delete this->head;
-            this->head = temp;
-        }
+    //     while (this->head != NULL)
+    //     {
+    //         temp = this->head->get_next();
+    //         delete this->head;
+    //         this->head = temp;
+    //     }
 
-        delete this->head;
-        delete temp;
-    };
+    //     delete this->head;
+    //     delete temp;
+    // };
 };
 
 class DoublyLinkedList
@@ -521,18 +523,18 @@ public:
         std::cout << "NULL\n";
     }
 
-    ~DoublyLinkedList()
-    {
-        DoublyNode *temp;
+    // ~DoublyLinkedList()
+    // {
+    //     DoublyNode *temp;
 
-        while (this->head != NULL)
-        {
-            temp = this->head->get_next();
-            delete this->head;
-            this->head = temp;
-        }
+    //     while (this->head != NULL)
+    //     {
+    //         temp = this->head->get_next();
+    //         delete this->head;
+    //         this->head = temp;
+    //     }
 
-        delete this->head;
-        delete temp;
-    }
+    //     delete this->head;
+    //     delete temp;
+    // }
 };
