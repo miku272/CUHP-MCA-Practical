@@ -21,7 +21,7 @@ public:
 
     String(int size, char *str)
     {
-        this->str_size = str_size;
+        this->str_size = size;
         this->str = str;
     }
 
@@ -87,6 +87,8 @@ int main(int argc, char const *argv[])
     s3 = s1 + s2;
 
     s3.display();
+
+    std::cout << s1.get_size() << "\n" << s2.get_size() << "\n" << s3.get_size();
 
     return 0;
 }
