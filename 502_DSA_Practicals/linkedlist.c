@@ -267,7 +267,7 @@ int main(int argc, char const *argv[])
     {
         system("cls");
 
-        printf("Enter your choice:\n1. Insert at first.\n2. Insert at last.\n3. Insert at index\n4. Search in list.\n5. Reverse the list\n6. Delete at first\n7. Delete at last\n8. Delete at index\n9. Print list\n");
+        printf("1. Insert at first.\n2. Insert at last.\n3. Insert at index\n4. Search in list.\n5. Reverse the list\n6. Delete at first\n7. Delete at last\n8. Delete at index\n9. Print list\n");
 
         printf("Enter your choice: ");
         scanf("%d", &option);
