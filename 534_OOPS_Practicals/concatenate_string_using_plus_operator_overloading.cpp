@@ -86,9 +86,14 @@ int main(int argc, char const *argv[])
 
     s3 = s1 + s2;
 
-    s3.display();
+    std::cout << "\n\nString 1: ";
+    s1.display();
 
-    std::cout << s1.get_size() << "\n" << s2.get_size() << "\n" << s3.get_size();
+    std::cout << "\nString 2: ";
+    s2.display();
+
+    std::cout << "\nString 3 (Concatenated string): ";
+    s3.display();
 
     return 0;
 }
